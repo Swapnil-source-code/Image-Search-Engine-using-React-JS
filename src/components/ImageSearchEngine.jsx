@@ -46,20 +46,21 @@ const ImageSearchEngine = () => {
     <>
       <div className="container">
         <h1>Image Search Engine</h1>
-        <form onSubmit={handleSubmit} id="search-form">
-          <input
-            type="text"
-            id="search-box"
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
-            placeholder="Search any images here..."
-          />
-          <button type="submit">Search</button>
-        </form>
-
+        <div className="search-box">
+          <form onSubmit={handleSubmit} id="search-form">
+            <input
+              type="text"
+              id="search-box"
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+              placeholder="Search any images here..."
+            />
+            <button type="submit">Search</button>
+          </form>
+        </div>
           <div id="search-result">
             {searchResults.map((result, index) => (
-            <a key={index} href={result.links.html} target="_blank">
+            <a key={index} href={result.links.html} target="_blank" rel="noopener noreferrer">
               <img src={result.urls.small} alt={`Result ${index + 1}`} />
               </a>
             ))}

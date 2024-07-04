@@ -9,17 +9,18 @@ h1{
   margin: 100px auto 50px;
   font-weight: 600;
 }
-form{
+.search-box{
   width: 90%;
   max-width: 600px;
   margin: auto;
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   border-radius: 8px;
   border: 2px white solid;
 }
-form input{
+.search-box input{
   flex: 1;
   height: 100%;
   border: 0;
@@ -28,14 +29,14 @@ form input{
   color: #ffffff;
   font-size: 18px;
   padding: 0 30px;
+  width: 28rem;
 }
-form button{
+.search-box button{
   padding: 0 40px;
-  height: 100%;
-  background: #fb5b50;
+  height: 3rem;
+  background: #ff3929;
   color: #ffffff;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
   border: 0;
   outline: 0;
   cursor: pointer;
@@ -69,4 +70,53 @@ form button{
   height: 230px;
   object-fit: cover;
   border-radius: 5px;
+}
+
+
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 768px) {
+  h1 {
+    margin: 15px auto 40px;
+  }
+  .search-box {
+    justify-content: space-around;
+  }
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 25px;
+    margin: 15px auto 40px;
+  }
+  .search-box{
+    height: 100px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border:none;
+  }
+  form{
+    display: grid;
+  }
+  .search-box input {
+    height: 50px;
+    border: 2px solid #ffffff;
+    width: 17rem;
+    text-align: center;
+    border-radius: 8px;
+    padding: 0px 15px;
+  }
+  .search-box button {
+    height: 2.7rem;
+    margin-top: 16px;
+  }
+  #search-result {
+    width: 90%;
+    margin: 80px auto 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+  } 
 }
