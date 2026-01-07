@@ -1,7 +1,10 @@
 exports.handler = async (event) => {
-  const { query = "", page = 1 } = event.queryStringParameters || {};
+  let { query, page } = event.queryStringParameters || {};
 
   const ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
+
+  query = query && query.trim();
+  page = Number(page) || 1;
 
   if (!query) {
     return {
@@ -19,7 +22,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify({
-        results: data.results || []
+        results: Array.isArray(data.results) ? data.results : []
       })
     };
   } catch (error) {
