@@ -10,7 +10,7 @@ const ImageSearchEngine = () => {
   
 
   const searchImages = async () => {
-    const url = `https://api.unsplash.com/search/photos?page=${page}&query=${keyword}&client_id=${import.meta.env.VITE_API_KEY}&per_page=15`;
+    const url = `/.netlify/functions/images?page=${page}&query=${keyword}`;
 
     try {
       const response = await fetch(url);
